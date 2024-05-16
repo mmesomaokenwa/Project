@@ -25,7 +25,7 @@ const HeroSection = ({id, title, price, intro, description, images, thumbnail, r
               <div className="flex items-center gap-2">
                 {images.slice(0, 3).map((image, index) =>
                   index !== images.slice(0, 3).length - 1 ? (
-                    <>
+                    <React.Fragment key={index}>
                       <Image
                         src={image}
                         alt={title}
@@ -34,9 +34,10 @@ const HeroSection = ({id, title, price, intro, description, images, thumbnail, r
                         className="size-20 bg-gray-200 rounded-xl object-cover"
                       />
                       <FaLeftRight className="text-green-500" />
-                    </>
+                    </React.Fragment>
                   ) : (
                     <Image
+                      key={index}
                       src={image}
                       alt={title}
                       width={100}
